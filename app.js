@@ -6,8 +6,12 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var http = require('http');
 
 var app = express();
+var server = http.createServer(app)
+// 改写
+// var http = require('http')
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -38,4 +42,7 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+app.listen('3000')
+
+// 改写
+// module.exports = app;
